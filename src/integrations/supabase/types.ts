@@ -14,7 +14,155 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      menu_categories: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          sort_order: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          sort_order?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      menu_items: {
+        Row: {
+          category_id: string
+          created_at: string
+          description: string | null
+          id: string
+          is_available: boolean
+          name: string
+          price_pkr: number
+          sort_order: number
+        }
+        Insert: {
+          category_id: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_available?: boolean
+          name: string
+          price_pkr: number
+          sort_order?: number
+        }
+        Update: {
+          category_id?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_available?: boolean
+          name?: string
+          price_pkr?: number
+          sort_order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "menu_items_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "menu_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          address: string | null
+          area: string | null
+          created_at: string
+          customer_name: string
+          delivery_fee_pkr: number
+          fulfillment_type: string
+          id: string
+          items: Json
+          notes: string | null
+          phone: string
+          pickup_time: string | null
+          status: string
+          subtotal_pkr: number
+          total_pkr: number
+        }
+        Insert: {
+          address?: string | null
+          area?: string | null
+          created_at?: string
+          customer_name: string
+          delivery_fee_pkr?: number
+          fulfillment_type: string
+          id?: string
+          items: Json
+          notes?: string | null
+          phone: string
+          pickup_time?: string | null
+          status?: string
+          subtotal_pkr: number
+          total_pkr: number
+        }
+        Update: {
+          address?: string | null
+          area?: string | null
+          created_at?: string
+          customer_name?: string
+          delivery_fee_pkr?: number
+          fulfillment_type?: string
+          id?: string
+          items?: Json
+          notes?: string | null
+          phone?: string
+          pickup_time?: string | null
+          status?: string
+          subtotal_pkr?: number
+          total_pkr?: number
+        }
+        Relationships: []
+      }
+      reservations: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          notes: string | null
+          party_size: number
+          phone: string
+          reserve_date: string
+          reserve_time: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          notes?: string | null
+          party_size: number
+          phone: string
+          reserve_date: string
+          reserve_time: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          notes?: string | null
+          party_size?: number
+          phone?: string
+          reserve_date?: string
+          reserve_time?: string
+          status?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
