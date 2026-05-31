@@ -92,6 +92,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#1c1813" },
+      { name: "twitter:title", content: "Rue — Specialty Coffee & All-Day Kitchen, Islamabad" },
+      { name: "description", content: "Aesthetic cafe website builder for Rue, Islamabad, featuring online ordering and a visually appealing design." },
+      { property: "og:description", content: "Aesthetic cafe website builder for Rue, Islamabad, featuring online ordering and a visually appealing design." },
+      { name: "twitter:description", content: "Aesthetic cafe website builder for Rue, Islamabad, featuring online ordering and a visually appealing design." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/52887801-1096-4b0c-b789-2b4a3ae86363/id-preview-c53b343e--3512d777-fad0-4406-8ffe-d1eff16d40d2.lovable.app-1780247609261.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/52887801-1096-4b0c-b789-2b4a3ae86363/id-preview-c53b343e--3512d777-fad0-4406-8ffe-d1eff16d40d2.lovable.app-1780247609261.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
