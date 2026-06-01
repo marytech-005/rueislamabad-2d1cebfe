@@ -58,8 +58,8 @@ function AdminPage() {
         fetchOrders({ data: { passcode: code } }),
         fetchReservations({ data: { passcode: code } }),
       ]);
-      setOrders(o.orders as OrderRow[]);
-      setReservations(r.reservations as ReservationRow[]);
+      setOrders(o.orders as unknown as OrderRow[]);
+      setReservations(r.reservations as unknown as ReservationRow[]);
       setAuthed(true);
       sessionStorage.setItem("rue_admin", code);
     } catch (e) {
