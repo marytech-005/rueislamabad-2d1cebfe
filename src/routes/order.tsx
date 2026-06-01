@@ -11,9 +11,13 @@ export const Route = createFileRoute("/order")({
   head: () => ({
     meta: [
       { title: "Order online — Rue Islamabad" },
-      { name: "description", content: "Order from Rue for delivery or pickup. Specialty coffee, breakfast, sandwiches, pastas." },
+      { name: "description", content: "Order from Rue for delivery across F-6 / F-7 or pickup. Specialty coffee, breakfast, sandwiches, pastas." },
       { property: "og:title", content: "Order online — Rue Islamabad" },
-      { property: "og:description", content: "Delivery or pickup across Islamabad." },
+      { property: "og:description", content: "Delivery or pickup from Rue, F-6 Markaz, Islamabad." },
+      { property: "og:url", content: "https://rueislamabad.lovable.app/order" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://rueislamabad.lovable.app/order" },
     ],
   }),
   component: OrderPage,
