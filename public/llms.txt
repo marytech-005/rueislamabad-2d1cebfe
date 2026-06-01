@@ -1,0 +1,14 @@
+# Rue Islamabad
+
+> A candlelit cafe in F-6 Markaz, Islamabad. Specialty coffee, all-day breakfast, sandwiches and pastas. Open 8 AM to midnight, daily.
+
+Rue is on the third floor of 1 Agha Khan Road, F-6 Markaz, Islamabad. Phone: 0337 6502222.
+
+## Pages
+
+- [Home](/): Overview of Rue, signature dishes, and visiting information.
+- [Menu](/menu): Full menu — specialty coffee, all-day breakfast, sandwiches, pastas, sides and desserts with prices in PKR.
+- [Gallery](/gallery): Photos of the room, the coffee bar, and the kitchen.
+- [Our Story](/story): How Rue came to be, hours and address.
+- [Reserve a table](/reserve): Book a table online; we call to confirm.
+- [Order online](/order): Delivery across F-6 / F-7 or pickup.

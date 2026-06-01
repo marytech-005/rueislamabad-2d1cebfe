@@ -9,16 +9,43 @@ import interiorImg from "@/assets/interior.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rue — A quiet cafe in F-6, Islamabad" },
+      { title: "Rue — Specialty Coffee & All-Day Kitchen, Islamabad" },
       {
         name: "description",
         content:
-          "Specialty coffee, all-day breakfast, sandwiches and pastas in a candlelit room on Agha Khan Road. Open 8 AM to midnight.",
+          "Rue is a candlelit cafe in F-6 Markaz, Islamabad — specialty coffee, all-day breakfast, sandwiches, and pastas. Open 8 AM to midnight.",
       },
-      { property: "og:title", content: "Rue — A quiet cafe in F-6, Islamabad" },
+      { property: "og:title", content: "Rue — Specialty Coffee & All-Day Kitchen, Islamabad" },
       {
         property: "og:description",
-        content: "Specialty coffee, all-day breakfast, sandwiches and pastas. Open 8 AM to midnight.",
+        content: "A candlelit cafe in F-6 Markaz, Islamabad. Specialty coffee, all-day breakfast, sandwiches and pastas.",
+      },
+      { property: "og:url", content: "https://rueislamabad.lovable.app/" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/52887801-1096-4b0c-b789-2b4a3ae86363/id-preview-c53b343e--3512d777-fad0-4406-8ffe-d1eff16d40d2.lovable.app-1780247609261.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/52887801-1096-4b0c-b789-2b4a3ae86363/id-preview-c53b343e--3512d777-fad0-4406-8ffe-d1eff16d40d2.lovable.app-1780247609261.png" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://rueislamabad.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CafeOrCoffeeShop",
+          name: "Rue",
+          url: "https://rueislamabad.lovable.app/",
+          telephone: "+92-337-6502222",
+          servesCuisine: ["Coffee", "Breakfast", "Sandwiches", "Pasta"],
+          priceRange: "₨₨",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Third Floor, 1 Agha Khan Road, F-6 Markaz",
+            addressLocality: "Islamabad",
+            addressCountry: "PK",
+          },
+          openingHours: "Mo-Su 08:00-24:00",
+        }),
       },
     ],
   }),
@@ -35,13 +62,14 @@ function HomePage() {
           alt="Candlelit interior of Rue cafe at dusk, a barista pulling espresso"
           width={1920}
           height={1280}
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
         <div className="relative z-10 mx-auto max-w-6xl px-6 h-full flex flex-col justify-end pb-24 fade-in">
           <p className="text-xs uppercase tracking-[0.3em] text-brass">F-6 Markaz, Islamabad</p>
           <h1 className="mt-4 font-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] text-foreground max-w-3xl">
-            Slow mornings.<br />Quiet evenings.
+            Rue — Specialty Coffee & All-Day Kitchen in Islamabad
           </h1>
           <p className="mt-6 max-w-md text-base text-foreground/80 leading-relaxed">
             A candlelit room on Agha Khan Road, pouring specialty coffee from

@@ -10,9 +10,13 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — Rue Islamabad" },
-      { name: "description", content: "A look inside Rue — the room, the coffee, the kitchen." },
+      { name: "description", content: "A look inside Rue — the candlelit room, the coffee bar, the all-day kitchen in F-6 Markaz, Islamabad." },
       { property: "og:title", content: "Gallery — Rue Islamabad" },
       { property: "og:description", content: "A look inside Rue — the room, the coffee, the kitchen." },
+      { property: "og:url", content: "https://rueislamabad.lovable.app/gallery" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://rueislamabad.lovable.app/gallery" },
     ],
   }),
   component: GalleryPage,

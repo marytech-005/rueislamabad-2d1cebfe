@@ -20,10 +20,32 @@ export const Route = createFileRoute("/menu")({
       {
         name: "description",
         content:
-          "Specialty coffee, all-day breakfast, sandwiches, pastas, sides and desserts at Rue, F-6 Markaz, Islamabad.",
+          "Full menu at Rue, F-6 Markaz: specialty coffee, all-day breakfast, sandwiches, pastas, sides and desserts with prices.",
       },
       { property: "og:title", content: "Menu — Rue Islamabad" },
-      { property: "og:description", content: "Specialty coffee, all-day breakfast, sandwiches, pastas." },
+      { property: "og:description", content: "Specialty coffee, all-day breakfast, sandwiches, pastas, sides and desserts." },
+      { property: "og:url", content: "https://rueislamabad.lovable.app/menu" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://rueislamabad.lovable.app/menu" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Menu",
+          name: "Rue Menu",
+          hasMenuSection: [
+            { "@type": "MenuSection", name: "Specialty Coffee" },
+            { "@type": "MenuSection", name: "All-Day Breakfast" },
+            { "@type": "MenuSection", name: "Sandwiches" },
+            { "@type": "MenuSection", name: "Pastas" },
+            { "@type": "MenuSection", name: "Sides" },
+            { "@type": "MenuSection", name: "Desserts" },
+          ],
+        }),
+      },
     ],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(menuQueryOptions),

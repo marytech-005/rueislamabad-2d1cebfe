@@ -10,10 +10,14 @@ export const Route = createFileRoute("/story")({
       {
         name: "description",
         content:
-          "Rue opened on the third floor of 1 Agha Khan Road in F-6 Markaz. A specialty coffee house and all-day kitchen built around slow mornings and quiet evenings.",
+          "Rue opened on the third floor of 1 Agha Khan Road in F-6 Markaz — a specialty coffee house and all-day kitchen built around slow mornings and quiet evenings.",
       },
       { property: "og:title", content: "Our Story — Rue Islamabad" },
       { property: "og:description", content: "A specialty coffee house and all-day kitchen in F-6 Markaz, Islamabad." },
+      { property: "og:url", content: "https://rueislamabad.lovable.app/story" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://rueislamabad.lovable.app/story" },
     ],
   }),
   component: StoryPage,
