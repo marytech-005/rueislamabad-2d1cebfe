@@ -14,6 +14,7 @@ import { Route as ReserveRouteImport } from './routes/reserve'
 import { Route as OrderRouteImport } from './routes/order'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
 const StoryRoute = StoryRouteImport.update({
@@ -41,6 +42,11 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +55,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/gallery': typeof GalleryRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/gallery': typeof GalleryRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/gallery': typeof GalleryRoute
   '/menu': typeof MenuRoute
   '/order': typeof OrderRoute
@@ -74,14 +83,30 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gallery' | '/menu' | '/order' | '/reserve' | '/story'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/gallery'
+    | '/menu'
+    | '/order'
+    | '/reserve'
+    | '/story'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gallery' | '/menu' | '/order' | '/reserve' | '/story'
-  id: '__root__' | '/' | '/gallery' | '/menu' | '/order' | '/reserve' | '/story'
+  to: '/' | '/admin' | '/gallery' | '/menu' | '/order' | '/reserve' | '/story'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/gallery'
+    | '/menu'
+    | '/order'
+    | '/reserve'
+    | '/story'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   GalleryRoute: typeof GalleryRoute
   MenuRoute: typeof MenuRoute
   OrderRoute: typeof OrderRoute
@@ -126,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -138,6 +170,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   GalleryRoute: GalleryRoute,
   MenuRoute: MenuRoute,
   OrderRoute: OrderRoute,
