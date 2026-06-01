@@ -43,7 +43,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Explore</h4>
+          <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Explore</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/menu" className="text-foreground/85 hover:text-brass transition-colors">Menu</Link></li>
             <li><Link to="/gallery" className="text-foreground/85 hover:text-brass transition-colors">Gallery</Link></li>
