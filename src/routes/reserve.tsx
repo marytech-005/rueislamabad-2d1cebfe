@@ -10,9 +10,37 @@ export const Route = createFileRoute("/reserve")({
   head: () => ({
     meta: [
       { title: "Reserve a table — Rue Islamabad" },
-      { name: "description", content: "Reserve a table at Rue, F-6 Markaz, Islamabad. Open 8 AM to midnight." },
+      { name: "description", content: "Book a table at Rue, F-6 Markaz, Islamabad. Open 8 AM to midnight, daily." },
       { property: "og:title", content: "Reserve a table — Rue Islamabad" },
-      { property: "og:description", content: "Reserve a table at Rue, F-6 Markaz, Islamabad." },
+      { property: "og:description", content: "Reserve a table at Rue, F-6 Markaz, Islamabad. Open 8 AM to midnight, daily." },
+      { property: "og:url", content: "https://rueislamabad.lovable.app/reserve" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://rueislamabad.lovable.app/reserve" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          name: "Rue",
+          url: "https://rueislamabad.lovable.app/",
+          telephone: "+92-337-6502222",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Third Floor, 1 Agha Khan Road, F-6 Markaz",
+            addressLocality: "Islamabad",
+            addressCountry: "PK",
+          },
+          openingHours: "Mo-Su 08:00-24:00",
+          acceptsReservations: true,
+          potentialAction: {
+            "@type": "ReserveAction",
+            target: "https://rueislamabad.lovable.app/reserve",
+          },
+        }),
+      },
     ],
   }),
   component: ReservePage,
