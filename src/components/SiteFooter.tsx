@@ -6,7 +6,7 @@ export function SiteFooter() {
     <footer className="border-t border-border/60 mt-24">
       <div className="mx-auto max-w-6xl px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <h3 className="font-display text-3xl text-foreground">Rue</h3>
+          <h2 className="font-display text-3xl text-foreground">Rue</h2>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm leading-relaxed">
             Specialty coffee, all-day breakfast, and a quiet corner of F-6 to
             slow down in. We open at eight, we close at midnight.
