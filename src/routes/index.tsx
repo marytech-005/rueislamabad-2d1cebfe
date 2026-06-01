@@ -62,13 +62,14 @@ function HomePage() {
           alt="Candlelit interior of Rue cafe at dusk, a barista pulling espresso"
           width={1920}
           height={1280}
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
         <div className="relative z-10 mx-auto max-w-6xl px-6 h-full flex flex-col justify-end pb-24 fade-in">
           <p className="text-xs uppercase tracking-[0.3em] text-brass">F-6 Markaz, Islamabad</p>
           <h1 className="mt-4 font-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] text-foreground max-w-3xl">
-            Slow mornings.<br />Quiet evenings.
+            Rue — Specialty Coffee & All-Day Kitchen in Islamabad
           </h1>
           <p className="mt-6 max-w-md text-base text-foreground/80 leading-relaxed">
             A candlelit room on Agha Khan Road, pouring specialty coffee from
