@@ -23,7 +23,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Visit</h4>
+          <h3 className="text-xs uppercase tracking-widest text-muted-foreground">Visit</h3>
           <ul className="mt-4 space-y-3 text-sm text-foreground/85">
             <li className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5 text-brass" strokeWidth={1.5} />
