@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/lib/cart-store";
 import { useEffect, useState } from "react";
+import rueMark from "@/assets/rue-mark.png.asset.json";
+
 
 const links = [
   { to: "/menu", label: "Menu" },
@@ -21,10 +23,16 @@ export function SiteHeader() {
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <Link
           to="/"
-          className="font-display text-2xl tracking-tight text-foreground hover:text-brass transition-colors"
+          className="flex items-center gap-2 font-display text-2xl tracking-tight text-foreground hover:text-brass transition-colors"
         >
-          Rue
+          <img
+            src={rueMark.url}
+            alt="Rue logo"
+            className="h-8 w-8 object-contain"
+          />
+          <span>Rue</span>
         </Link>
+
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <Link
