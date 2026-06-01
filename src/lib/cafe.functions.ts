@@ -24,8 +24,6 @@ export const getMenu = createServerFn({ method: "GET" }).handler(async () => {
 // ---------- Orders ----------
 const orderItemSchema = z.object({
   id: z.string().uuid(),
-  name: z.string().min(1).max(120),
-  price: z.number().int().nonnegative().max(100000),
   quantity: z.number().int().min(1).max(50),
 });
 
@@ -53,7 +51,28 @@ const orderSchema = z
 export const submitOrder = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => orderSchema.parse(input))
   .handler(async ({ data }) => {
-    const subtotal = data.items.reduce((s, i) => s + i.price * i.quantity, 0);
+    // Fetch authoritative prices and names from the database — never trust client values
+    const ids = data.items.map((i) => i.id);
+    const { data: dbItems, error: lookupErr } = await supabaseAdmin
+      .from("menu_items")
+      .select("id, name, price_pkr")
+      .in("id", ids)
+      .eq("is_available", true);
+    if (lookupErr) throw new Error(lookupErr.message);
+
+    const itemMap = new Map(
+      (dbItems ?? []).map((i) => [i.id, { name: i.name, price: i.price_pkr }]),
+    );
+
+    const missing = data.items.find((i) => !itemMap.has(i.id));
+    if (missing) throw new Error("One or more items are unavailable");
+
+    const enrichedItems = data.items.map((i) => {
+      const m = itemMap.get(i.id)!;
+      return { id: i.id, name: m.name, price: m.price, quantity: i.quantity };
+    });
+
+    const subtotal = enrichedItems.reduce((s, i) => s + i.price * i.quantity, 0);
     const deliveryFee = data.fulfillment_type === "delivery" ? 200 : 0;
     const total = subtotal + deliveryFee;
 
@@ -67,7 +86,7 @@ export const submitOrder = createServerFn({ method: "POST" })
         area: data.area ?? null,
         pickup_time: data.pickup_time ?? null,
         notes: data.notes ?? null,
-        items: data.items,
+        items: enrichedItems,
         subtotal_pkr: subtotal,
         delivery_fee_pkr: deliveryFee,
         total_pkr: total,
@@ -78,6 +97,7 @@ export const submitOrder = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { orderId: order.id, total: order.total_pkr };
   });
+
 
 // ---------- Reservations ----------
 const reservationSchema = z.object({
