@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/lib/cart-store";
 import { useEffect, useState } from "react";
-import rueMark from "@/assets/rue-mark.png.asset.json";
+import rueLogo from "@/assets/rue-logo.jpg.asset.json";
 
 
 const links = [
