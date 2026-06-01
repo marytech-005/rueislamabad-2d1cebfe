@@ -21,16 +21,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border/60">
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-        <Link
-          to="/"
-          className="flex items-center gap-2 font-display text-2xl tracking-tight text-foreground hover:text-brass transition-colors"
-        >
+        <Link to="/" className="flex items-center">
           <img
-            src={rueMark.url}
-            alt="Rue logo"
-            className="h-8 w-8 object-contain"
+            src={rueLogo.url}
+            alt="Rue"
+            className="h-8 w-auto object-contain"
           />
-          <span>Rue</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
